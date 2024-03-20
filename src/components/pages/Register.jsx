@@ -2,6 +2,7 @@ import React from 'react'
 import { ButtonToHome } from '../ui/Buttons'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Register = () => {
   return (
@@ -24,7 +25,13 @@ const FormRegister = () => {
    const {register,handleSubmit,formState} = useForm()
     const {errors} = formState
    const submitRegister = handleSubmit((data)=>{
-      console.log(data);
+      axios.post('http://localhost:8080/users',{...data,age:19})
+      .then(({data})=>{
+          console.log('se creo un usuario');
+      })
+      .catch((err)=>console.log(err))
+
+
    })
 
   return (

@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const tracks = createSlice({
     name:'tracks',
     initialState:{
-       modePlay:false
+       modePlay:false,
+       tracksHome:[]
     },
     reducers:{
        onModePlay : (state,action)=>{
@@ -11,10 +12,13 @@ const tracks = createSlice({
        },
        offModePlay : (state,action)=>{
         state.modePlay = false
-    }
+    },
+      setTracksHome : (state,action)=>{
+          state.tracksHome = action.payload
+      }
     }
 })
 
-export const {onModePlay,offModePlay}=tracks.actions
+export const {onModePlay,offModePlay,setTracksHome}=tracks.actions
 
 export default tracks.reducer

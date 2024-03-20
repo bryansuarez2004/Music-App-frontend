@@ -12,7 +12,7 @@ const ListenTracks = () => {
   
    console.log(modePlay);
   return (
-    <div className={`${modePlay ? 'translate-x-0 ' : 'translate-x-[100%]' }  fixed md:w-[25vw] bg-red-50 top-0 right-0 w-screen h-screen transition-all  duration-500 `}>ListenTracks
+    <div className={`${modePlay ? 'translate-x-0 ' : 'translate-x-[100%]' }  fixed md:w-[25vw]  top-0 right-0 w-screen h-screen transition-all  duration-500 bg-zinc-800  text-white`}>
     
      <button onClick={handleOffModeMusic}>cerrar escuchar musica</button>
     </div>

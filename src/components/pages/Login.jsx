@@ -2,6 +2,9 @@ import React from 'react'
 import { ButtonToHome } from '../ui/Buttons'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { Bounce, toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   return (
@@ -23,8 +26,29 @@ const FormLogin = () => {
  
    const {register,handleSubmit,formState} = useForm()
     const {errors} = formState
+
+
+
    const submitLogin = handleSubmit((data)=>{
       console.log(data);
+
+      toast.promise(
+        axios.post('http://localhost:8080/users/login',data)
+      .then(({data})=>{
+        localStorage.setItem('token',data.token)
+          console.log(data);
+      })
+      .catch((err)=>console.log(err)),
+        {
+          pending: 'logueando ...',
+          success: 'te logueaste 👌',
+          error: 'ocurrio un error',
+          
+        }
+    );
+
+
+      
    })
 
   return (

@@ -2,6 +2,7 @@ import React from 'react'
 import Search from '../layout/Search'
 import { useDispatch } from 'react-redux'
 import { onModePlay } from '../../store/slices/tracks.slices'
+import TrackList from '../layout/TrackList'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -11,10 +12,14 @@ const Home = () => {
     }
 
   return (
-    <div className='bg-zinc-950 w-full min-h-screen text-white' >
+    <div className='bg-zinc-950 w-full min-h-screen text-white ' >
       
      <Search/>
-    <button onClick={handleModeMusic}>escuchar music</button>
+     <TrackList/>
+     
+   
+     
+    {/* <button onClick={handleModeMusic}>escuchar music</button> */}
     </div>
   )
 }
